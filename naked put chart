@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+U=np.arange(0,100,1)
+Ex = 47
+P_cost=5
+
+def put_payoff(U,Ex,P_cost):
+    return np.where(U<=Ex, Ex-U,0)-P_cost
+    
+fig=plt.figure ()
+ax= fig.add_subplot(1,1,1)
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['top'].set_color('none')
+ax.spines['right'].set_color('none')
+
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+plt.plot(U,put_payoff(U, Ex, P_cost),'g')
+plt.show()    
